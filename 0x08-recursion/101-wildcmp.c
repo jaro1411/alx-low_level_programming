@@ -1,50 +1,21 @@
 #include "main.h"
 
 /**
- * is_palindrome - checks string if palindrome
- * @s :parameter one
- * Return: 1 if palindrome, 0 if not
+ * wildcmp - function compares two strings
+ * @s1: string one
+ * @s2: string two
+ * Return: 1 if the strings are identical and 0 if they are not.
  */
 
-int is_palindrome(char *s)
+int wildcmp(char *s1, char *s2)
 {
-	int get_length(char *s);
-	int my_pal(char *s, int l);
-	int length;
-
-	length = get_length(s) - 1;
-	return (my_pal(s, --length));
-}
-
-/**
- * get_length - gets length of string
- * @s: parameter one
- * Return: return length of string
- */
-
-int get_length(char *s)
-{
-	if (*s == '\0')
-		return (1);
-	else
-		return (1 + get_length(++s));
-}
-/**
- * my_pal  - recursive check for palindrome
- * @s: string
- * @l: parameter
- * Return: 1 if palindrome, 0 if not
- */
-
-int my_pal(char *s, int l)
-{
-	if (*s == *(s + l))
-	{
-		if (l <= 0)
-			return (1);
-		else
-			return (my_pal(++s, l - 2));
-	}
-	else
+	if (*s2 == '*' && *(s2 + 1) != '\0' && *s1 == '\0')
 		return (0);
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
+	if (*s1 == *s2)
+		return (wildcmp(s1 + 1, s2 + 1));
+	if (*s2 == '*')
+		return (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2));
+	return (0);
 }
