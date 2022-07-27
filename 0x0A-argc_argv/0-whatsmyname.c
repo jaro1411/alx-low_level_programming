@@ -1,16 +1,14 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
- * main - Entry point to program
- * @argc: argument count
- * @argv: array of strings
- * Return: Always 0 success
+ * main - entry point to the program
+ * @argc: the counts of the arguments to the main
+ * @argv: arguments to the string array
+ * Return: 0 if success
  */
 
-int main(int __attribute__ ((unused)) argc, char *argv[])
+int main(int __attribute__((unused)) argc, char *argv[])
 {
 	printf("%s\n", *argv);
-
 	return (0);
 }
