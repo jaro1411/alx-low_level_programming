@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>
+
 
 /**
  * main - function to print the name of the program
